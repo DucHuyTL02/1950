@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bf1c2cee26cb40c4b22ed0ab29333f11" Name="Diagram1">
+        <EntityTypeShape EntityType="Do_AnModel.Category" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Do_AnModel.Customer" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Do_AnModel.Order" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Do_AnModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Do_AnModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Do_AnModel.serviec" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Do_AnModel.User" Width="1.5" PointX="1.5" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="Do_AnModel.FK__Product__IDCate__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="Do_AnModel.fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Do_AnModel.FK__Order__IDCus__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="Do_AnModel.FK__OrderDeta__IDOrd__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="Do_AnModel.FK__OrderDeta__IDPro__2E1BDC42" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
