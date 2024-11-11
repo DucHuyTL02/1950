@@ -12,25 +12,25 @@ namespace Web_bán_hàng__đồ_án_.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public product()
         {
-            this.OrderDetail = new HashSet<OrderDetail>();
+            this.orderdetails = new HashSet<orderdetail>();
         }
     
-        public int ID_product { get; set; }
-        public string NameProd { get; set; }
+        public int id_product { get; set; }
+        public string nameprod { get; set; }
         public string brand { get; set; }
-        public Nullable<int> IDCate { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public Nullable<int> Stock_quantity { get; set; }
+        public int idcate { get; set; }
+        public int price { get; set; }
+        public int stock_quantity { get; set; }
         public string image { get; set; }
         public string description { get; set; }
     
-        public virtual Category Category { get; set; }
+        public virtual category category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+        public virtual ICollection<orderdetail> orderdetails { get; set; }
     }
 }

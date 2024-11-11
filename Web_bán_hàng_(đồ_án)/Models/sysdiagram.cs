@@ -12,17 +12,12 @@ namespace Web_bán_hàng__đồ_án_.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class orderdetail
+    public partial class sysdiagram
     {
-        public int id_detail { get; set; }
-        public int idproduct { get; set; }
-        public int idorder { get; set; }
-        public int quantity { get; set; }
-        public double price { get; set; }
-        public double total_price { get; set; }
-        public string bill_code { get; set; }
-    
-        public virtual order order { get; set; }
-        public virtual product product { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

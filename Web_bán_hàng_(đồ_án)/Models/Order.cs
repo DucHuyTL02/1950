@@ -12,25 +12,25 @@ namespace Web_bán_hàng__đồ_án_.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public order()
         {
-            this.OrderDetail = new HashSet<OrderDetail>();
+            this.orderdetails = new HashSet<orderdetail>();
         }
     
-        public int ID_order { get; set; }
-        public Nullable<System.DateTime> DateOrder { get; set; }
-        public Nullable<int> IDCus { get; set; }
+        public int id_order { get; set; }
+        public System.DateTime dateorder { get; set; }
+        public int idcus { get; set; }
         public bool status { get; set; }
-        public Nullable<double> total_armount { get; set; }
+        public double total_amount { get; set; }
         public string paymentmethod { get; set; }
         public string shippingmethod { get; set; }
         public string shippingaddress { get; set; }
     
-        public virtual Customer Customer { get; set; }
+        public virtual customer customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+        public virtual ICollection<orderdetail> orderdetails { get; set; }
     }
 }

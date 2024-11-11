@@ -4,342 +4,478 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Do_AnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Category">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="category">
           <Key>
-            <PropertyRef Name="IDCate" />
+            <PropertyRef Name="idcate" />
           </Key>
-          <Property Name="IDCate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="idcate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Customer">
+        <EntityType Name="customer">
           <Key>
-            <PropertyRef Name="IDCus" />
+            <PropertyRef Name="Idcus" />
           </Key>
-          <Property Name="IDCus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameCus" Type="nvarchar" MaxLength="500" />
-          <Property Name="PhoneCus" Type="nvarchar" MaxLength="150" />
-          <Property Name="EmailCus" Type="nvarchar" MaxLength="500" />
-          <Property Name="Username" Type="nvarchar" MaxLength="100" />
+          <Property Name="Idcus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namecus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phonecus" Type="int" Nullable="false" />
+          <Property Name="emailcus" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Order">
+        <EntityType Name="order">
           <Key>
-            <PropertyRef Name="ID_order" />
+            <PropertyRef Name="id_order" />
           </Key>
-          <Property Name="ID_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateOrder" Type="date" />
-          <Property Name="IDCus" Type="int" />
+          <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateorder" Type="datetime" Nullable="false" />
+          <Property Name="idcus" Type="int" Nullable="false" />
           <Property Name="status" Type="bit" Nullable="false" />
-          <Property Name="total_armount" Type="float" />
-          <Property Name="paymentmethod" Type="nvarchar(max)" />
-          <Property Name="shippingmethod" Type="nvarchar(max)" />
-          <Property Name="shippingaddress" Type="nvarchar(max)" />
+          <Property Name="total_amount" Type="float" Nullable="false" />
+          <Property Name="paymentmethod" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="shippingmethod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="shippingaddress" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="OrderDetail">
+        <EntityType Name="orderdetail">
           <Key>
-            <PropertyRef Name="ID_detail" />
+            <PropertyRef Name="id_detail" />
           </Key>
-          <Property Name="ID_detail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDProduct" Type="int" />
-          <Property Name="IDOrder" Type="int" />
-          <Property Name="Quantity" Type="int" />
-          <Property Name="Price" Type="float" />
-          <Property Name="total_price" Type="float" />
-          <Property Name="bill_of_landing" Type="nvarchar(max)" />
+          <Property Name="id_detail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idproduct" Type="int" Nullable="false" />
+          <Property Name="idorder" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="total_price" Type="float" Nullable="false" />
+          <Property Name="bill_code" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <EntityType Name="Product">
+        <EntityType Name="product">
           <Key>
-            <PropertyRef Name="ID_product" />
+            <PropertyRef Name="id_product" />
           </Key>
-          <Property Name="ID_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameProd" Type="nvarchar(max)" />
-          <Property Name="brand" Type="nvarchar(max)" />
-          <Property Name="IDCate" Type="int" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="Stock_quantity" Type="int" />
-          <Property Name="image" Type="nvarchar(max)" />
-          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameprod" Type="nvarchar" MaxLength="50" />
+          <Property Name="brand" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idcate" Type="int" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="stock-quantity" Type="int" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <EntityType Name="serviec">
+        <EntityType Name="productCate">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="int" Nullable="false" />
+          <Property Name="id_cate" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="service">
           <Key>
             <PropertyRef Name="id_service" />
           </Key>
           <Property Name="id_service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name_service" Type="nvarchar(max)" />
-          <Property Name="price" Type="float" />
-          <Property Name="function" Type="nvarchar(max)" />
+          <Property Name="name_service" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="idcus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="username" />
           </Key>
-          <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="password" Type="nvarchar(max)" />
-          <Property Name="permisson" Type="bit" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="permission" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="fk">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+        <Association Name="FK_customer_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="username" />
             </Principal>
-            <Dependent Role="Customer">
-              <PropertyRef Name="Username" />
+            <Dependent Role="customer">
+              <PropertyRef Name="username" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__IDCus__2B3F6F97">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        <Association Name="FK_order_customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order" Type="Self.order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IDCus" />
+            <Principal Role="customer">
+              <PropertyRef Name="Idcus" />
             </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="IDCus" />
+            <Dependent Role="order">
+              <PropertyRef Name="idcus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IDOrd__2F10007B">
-          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+        <Association Name="FK_orderdetail_order">
+          <End Role="order" Type="Self.order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="ID_order" />
+            <Principal Role="order">
+              <PropertyRef Name="id_order" />
             </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="IDOrder" />
+            <Dependent Role="orderdetail">
+              <PropertyRef Name="idorder" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IDPro__2E1BDC42">
-          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+        <Association Name="FK_orderdetail_product">
+          <End Role="product" Type="Self.product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ID_product" />
+            <Principal Role="product">
+              <PropertyRef Name="id_product" />
             </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="IDProduct" />
+            <Dependent Role="orderdetail">
+              <PropertyRef Name="idproduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Product__IDCate__286302EC">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        <Association Name="FK_product_category">
+          <End Role="category" Type="Self.category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="product" Type="Self.product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="IDCate" />
+            <Principal Role="category">
+              <PropertyRef Name="idcate" />
             </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="IDCate" />
+            <Dependent Role="product">
+              <PropertyRef Name="idcate" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Do_AnModelStoreContainer">
-          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="serviec" EntityType="Self.serviec" Schema="dbo" store:Type="Tables" />
+        <Association Name="FK_productCate_category">
+          <End Role="category" Type="Self.category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="productCate" Type="Self.productCate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="idcate" />
+            </Principal>
+            <Dependent Role="productCate">
+              <PropertyRef Name="id_cate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Idcus" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="idcus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderdetail" EntityType="Self.orderdetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productCate" EntityType="Self.productCate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="fk" Association="Self.fk">
+          <AssociationSet Name="FK_customer_User" Association="Self.FK_customer_User">
             <End Role="User" EntitySet="User" />
-            <End Role="Customer" EntitySet="Customer" />
+            <End Role="customer" EntitySet="customer" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__IDCus__2B3F6F97" Association="Self.FK__Order__IDCus__2B3F6F97">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Order" EntitySet="Order" />
+          <AssociationSet Name="FK_order_customer" Association="Self.FK_order_customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="order" EntitySet="order" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IDOrd__2F10007B" Association="Self.FK__OrderDeta__IDOrd__2F10007B">
-            <End Role="Order" EntitySet="Order" />
-            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          <AssociationSet Name="FK_orderdetail_order" Association="Self.FK_orderdetail_order">
+            <End Role="order" EntitySet="order" />
+            <End Role="orderdetail" EntitySet="orderdetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IDPro__2E1BDC42" Association="Self.FK__OrderDeta__IDPro__2E1BDC42">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          <AssociationSet Name="FK_orderdetail_product" Association="Self.FK_orderdetail_product">
+            <End Role="product" EntitySet="product" />
+            <End Role="orderdetail" EntitySet="orderdetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__Product__IDCate__286302EC" Association="Self.FK__Product__IDCate__286302EC">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Product" EntitySet="Product" />
+          <AssociationSet Name="FK_product_category" Association="Self.FK_product_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productCate_category" Association="Self.FK_productCate_category">
+            <End Role="category" EntitySet="category" />
+            <End Role="productCate" EntitySet="productCate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_customer" Association="Self.FK_service_customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="service" EntitySet="service" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Do_AnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Category">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
           <Key>
-            <PropertyRef Name="IDCate" />
+            <PropertyRef Name="idcate" />
           </Key>
-          <Property Name="IDCate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Product" Relationship="Self.FK__Product__IDCate__286302EC" FromRole="Category" ToRole="Product" />
+          <Property Name="idcate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK_product_category" FromRole="category" ToRole="product" />
+          <NavigationProperty Name="productCates" Relationship="Self.FK_productCate_category" FromRole="category" ToRole="productCate" />
         </EntityType>
-        <EntityType Name="Customer">
+        <EntityType Name="customer">
           <Key>
-            <PropertyRef Name="IDCus" />
+            <PropertyRef Name="Idcus" />
           </Key>
-          <Property Name="IDCus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameCus" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneCus" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="EmailCus" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="Self.fk" FromRole="Customer" ToRole="User" />
-          <NavigationProperty Name="Order" Relationship="Self.FK__Order__IDCus__2B3F6F97" FromRole="Customer" ToRole="Order" />
+          <Property Name="Idcus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namecus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phonecus" Type="Int32" Nullable="false" />
+          <Property Name="emailcus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_customer_User" FromRole="customer" ToRole="User" />
+          <NavigationProperty Name="orders" Relationship="Self.FK_order_customer" FromRole="customer" ToRole="order" />
+          <NavigationProperty Name="services" Relationship="Self.FK_service_customer" FromRole="customer" ToRole="service" />
         </EntityType>
-        <EntityType Name="Order">
+        <EntityType Name="order">
           <Key>
-            <PropertyRef Name="ID_order" />
+            <PropertyRef Name="id_order" />
           </Key>
-          <Property Name="ID_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateOrder" Type="DateTime" Precision="0" />
-          <Property Name="IDCus" Type="Int32" />
+          <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateorder" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="idcus" Type="Int32" Nullable="false" />
           <Property Name="status" Type="Boolean" Nullable="false" />
-          <Property Name="total_armount" Type="Double" />
-          <Property Name="paymentmethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="shippingmethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="shippingaddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Order__IDCus__2B3F6F97" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="OrderDetail" Relationship="Self.FK__OrderDeta__IDOrd__2F10007B" FromRole="Order" ToRole="OrderDetail" />
+          <Property Name="total_amount" Type="Double" Nullable="false" />
+          <Property Name="paymentmethod" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="shippingmethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="shippingaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="customer" Relationship="Self.FK_order_customer" FromRole="order" ToRole="customer" />
+          <NavigationProperty Name="orderdetails" Relationship="Self.FK_orderdetail_order" FromRole="order" ToRole="orderdetail" />
         </EntityType>
-        <EntityType Name="OrderDetail">
+        <EntityType Name="orderdetail">
           <Key>
-            <PropertyRef Name="ID_detail" />
+            <PropertyRef Name="id_detail" />
           </Key>
-          <Property Name="ID_detail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDProduct" Type="Int32" />
-          <Property Name="IDOrder" Type="Int32" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="Price" Type="Double" />
-          <Property Name="total_price" Type="Double" />
-          <Property Name="bill_of_landing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="Self.FK__OrderDeta__IDOrd__2F10007B" FromRole="OrderDetail" ToRole="Order" />
-          <NavigationProperty Name="Product" Relationship="Self.FK__OrderDeta__IDPro__2E1BDC42" FromRole="OrderDetail" ToRole="Product" />
+          <Property Name="id_detail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idproduct" Type="Int32" Nullable="false" />
+          <Property Name="idorder" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="total_price" Type="Double" Nullable="false" />
+          <Property Name="bill_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="order" Relationship="Self.FK_orderdetail_order" FromRole="orderdetail" ToRole="order" />
+          <NavigationProperty Name="product" Relationship="Self.FK_orderdetail_product" FromRole="orderdetail" ToRole="product" />
         </EntityType>
-        <EntityType Name="Product">
+        <EntityType Name="product">
           <Key>
-            <PropertyRef Name="ID_product" />
+            <PropertyRef Name="id_product" />
           </Key>
-          <Property Name="ID_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameProd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IDCate" Type="Int32" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Stock_quantity" Type="Int32" />
-          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Category" Relationship="Self.FK__Product__IDCate__286302EC" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="OrderDetail" Relationship="Self.FK__OrderDeta__IDPro__2E1BDC42" FromRole="Product" ToRole="OrderDetail" />
+          <Property Name="id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameprod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idcate" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="stock_quantity" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="category" Relationship="Self.FK_product_category" FromRole="product" ToRole="category" />
+          <NavigationProperty Name="orderdetails" Relationship="Self.FK_orderdetail_product" FromRole="product" ToRole="orderdetail" />
         </EntityType>
-        <EntityType Name="serviec">
+        <EntityType Name="productCate">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="Int32" Nullable="false" />
+          <Property Name="id_cate" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="category" Relationship="Self.FK_productCate_category" FromRole="productCate" ToRole="category" />
+        </EntityType>
+        <EntityType Name="service">
           <Key>
             <PropertyRef Name="id_service" />
           </Key>
           <Property Name="id_service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name_service" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="price" Type="Double" />
-          <Property Name="function" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name_service" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idcus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="customer" Relationship="Self.FK_service_customer" FromRole="service" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="username" />
           </Key>
-          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="permisson" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.fk" FromRole="User" ToRole="Customer" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="permission" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="customers" Relationship="Self.FK_customer_User" FromRole="User" ToRole="customer" />
         </EntityType>
-        <Association Name="FK__Product__IDCate__286302EC">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        <Association Name="FK_product_category">
+          <End Role="category" Type="Self.category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="product" Type="Self.product" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="IDCate" />
+            <Principal Role="category">
+              <PropertyRef Name="idcate" />
             </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="IDCate" />
+            <Dependent Role="product">
+              <PropertyRef Name="idcate" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+        <Association Name="FK_productCate_category">
+          <End Role="category" Type="Self.category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="productCate" Type="Self.productCate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="idcate" />
+            </Principal>
+            <Dependent Role="productCate">
+              <PropertyRef Name="id_cate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_customer_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="username" />
             </Principal>
-            <Dependent Role="Customer">
-              <PropertyRef Name="Username" />
+            <Dependent Role="customer">
+              <PropertyRef Name="username" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__IDCus__2B3F6F97">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        <Association Name="FK_order_customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order" Type="Self.order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="IDCus" />
+            <Principal Role="customer">
+              <PropertyRef Name="Idcus" />
             </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="IDCus" />
+            <Dependent Role="order">
+              <PropertyRef Name="idcus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IDOrd__2F10007B">
-          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+        <Association Name="FK_service_customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="service" Type="Self.service" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="ID_order" />
+            <Principal Role="customer">
+              <PropertyRef Name="Idcus" />
             </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="IDOrder" />
+            <Dependent Role="service">
+              <PropertyRef Name="idcus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__IDPro__2E1BDC42">
-          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+        <Association Name="FK_orderdetail_order">
+          <End Role="order" Type="Self.order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ID_product" />
+            <Principal Role="order">
+              <PropertyRef Name="id_order" />
             </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="IDProduct" />
+            <Dependent Role="orderdetail">
+              <PropertyRef Name="idorder" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Do_AnEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Category" EntityType="Self.Category" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" />
-          <EntitySet Name="Order" EntityType="Self.Order" />
-          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" />
-          <EntitySet Name="Product" EntityType="Self.Product" />
-          <EntitySet Name="serviec" EntityType="Self.serviec" />
-          <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK__Product__IDCate__286302EC" Association="Self.FK__Product__IDCate__286302EC">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Product" EntitySet="Product" />
+        <Association Name="FK_orderdetail_product">
+          <End Role="product" Type="Self.product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="orderdetail" Type="Self.orderdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="orderdetail">
+              <PropertyRef Name="idproduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="orderdetails" EntityType="Self.orderdetail" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="productCates" EntityType="Self.productCate" />
+          <EntitySet Name="services" EntityType="Self.service" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_product_category" Association="Self.FK_product_category">
+            <End Role="category" EntitySet="categories" />
+            <End Role="product" EntitySet="products" />
           </AssociationSet>
-          <AssociationSet Name="fk" Association="Self.fk">
-            <End Role="User" EntitySet="User" />
-            <End Role="Customer" EntitySet="Customer" />
+          <AssociationSet Name="FK_productCate_category" Association="Self.FK_productCate_category">
+            <End Role="category" EntitySet="categories" />
+            <End Role="productCate" EntitySet="productCates" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__IDCus__2B3F6F97" Association="Self.FK__Order__IDCus__2B3F6F97">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Order" EntitySet="Order" />
+          <AssociationSet Name="FK_customer_User" Association="Self.FK_customer_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="customer" EntitySet="customers" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IDOrd__2F10007B" Association="Self.FK__OrderDeta__IDOrd__2F10007B">
-            <End Role="Order" EntitySet="Order" />
-            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          <AssociationSet Name="FK_order_customer" Association="Self.FK_order_customer">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="order" EntitySet="orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__IDPro__2E1BDC42" Association="Self.FK__OrderDeta__IDPro__2E1BDC42">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          <AssociationSet Name="FK_service_customer" Association="Self.FK_service_customer">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="service" EntitySet="services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderdetail_order" Association="Self.FK_orderdetail_order">
+            <End Role="order" EntitySet="orders" />
+            <End Role="orderdetail" EntitySet="orderdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderdetail_product" Association="Self.FK_orderdetail_product">
+            <End Role="product" EntitySet="products" />
+            <End Role="orderdetail" EntitySet="orderdetails" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -347,83 +483,103 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Do_AnModelStoreContainer" CdmEntityContainer="Do_AnEntities">
-          <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="Do_AnModel.Category">
-              <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="IDCate" ColumnName="IDCate" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="Model.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="idcate" ColumnName="idcate" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Customer">
-            <EntityTypeMapping TypeName="Do_AnModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="IDCus" ColumnName="IDCus" />
-                <ScalarProperty Name="NameCus" ColumnName="NameCus" />
-                <ScalarProperty Name="PhoneCus" ColumnName="PhoneCus" />
-                <ScalarProperty Name="EmailCus" ColumnName="EmailCus" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="Model.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="Idcus" ColumnName="Idcus" />
+                <ScalarProperty Name="namecus" ColumnName="namecus" />
+                <ScalarProperty Name="phonecus" ColumnName="phonecus" />
+                <ScalarProperty Name="emailcus" ColumnName="emailcus" />
+                <ScalarProperty Name="username" ColumnName="username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="Do_AnModel.Order">
-              <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="ID_order" ColumnName="ID_order" />
-                <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
-                <ScalarProperty Name="IDCus" ColumnName="IDCus" />
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="Model.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="dateorder" ColumnName="dateorder" />
+                <ScalarProperty Name="idcus" ColumnName="idcus" />
                 <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="total_armount" ColumnName="total_armount" />
+                <ScalarProperty Name="total_amount" ColumnName="total_amount" />
                 <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
                 <ScalarProperty Name="shippingmethod" ColumnName="shippingmethod" />
                 <ScalarProperty Name="shippingaddress" ColumnName="shippingaddress" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderDetail">
-            <EntityTypeMapping TypeName="Do_AnModel.OrderDetail">
-              <MappingFragment StoreEntitySet="OrderDetail">
-                <ScalarProperty Name="ID_detail" ColumnName="ID_detail" />
-                <ScalarProperty Name="IDProduct" ColumnName="IDProduct" />
-                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
+          <EntitySetMapping Name="orderdetails">
+            <EntityTypeMapping TypeName="Model.orderdetail">
+              <MappingFragment StoreEntitySet="orderdetail">
+                <ScalarProperty Name="id_detail" ColumnName="id_detail" />
+                <ScalarProperty Name="idproduct" ColumnName="idproduct" />
+                <ScalarProperty Name="idorder" ColumnName="idorder" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="total_price" ColumnName="total_price" />
-                <ScalarProperty Name="bill_of_landing" ColumnName="bill_of_landing" />
+                <ScalarProperty Name="bill_code" ColumnName="bill_code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="Do_AnModel.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="ID_product" ColumnName="ID_product" />
-                <ScalarProperty Name="NameProd" ColumnName="NameProd" />
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="Model.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="nameprod" ColumnName="nameprod" />
                 <ScalarProperty Name="brand" ColumnName="brand" />
-                <ScalarProperty Name="IDCate" ColumnName="IDCate" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Stock_quantity" ColumnName="Stock_quantity" />
+                <ScalarProperty Name="idcate" ColumnName="idcate" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="stock_quantity" ColumnName="stock-quantity" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="serviec">
-            <EntityTypeMapping TypeName="Do_AnModel.serviec">
-              <MappingFragment StoreEntitySet="serviec">
-                <ScalarProperty Name="id_service" ColumnName="id_service" />
-                <ScalarProperty Name="name_service" ColumnName="name_service" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="function" ColumnName="function" />
+          <EntitySetMapping Name="productCates">
+            <EntityTypeMapping TypeName="Model.productCate">
+              <MappingFragment StoreEntitySet="productCate">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="id_cate" ColumnName="id_cate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="Do_AnModel.User">
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="Model.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+                <ScalarProperty Name="name_service" ColumnName="name_service" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="idcus" ColumnName="idcus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="permisson" ColumnName="permisson" />
+                <ScalarProperty Name="permission" ColumnName="permission" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -441,7 +597,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

@@ -4,19 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bf1c2cee26cb40c4b22ed0ab29333f11" Name="Diagram1">
-        <EntityTypeShape EntityType="Do_AnModel.Category" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Do_AnModel.Customer" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Do_AnModel.Order" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Do_AnModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Do_AnModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Do_AnModel.serviec" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Do_AnModel.User" Width="1.5" PointX="1.5" PointY="9.5" IsExpanded="true" />
-        <AssociationConnector Association="Do_AnModel.FK__Product__IDCate__286302EC" ManuallyRouted="false" />
-        <AssociationConnector Association="Do_AnModel.fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Do_AnModel.FK__Order__IDCus__2B3F6F97" ManuallyRouted="false" />
-        <AssociationConnector Association="Do_AnModel.FK__OrderDeta__IDOrd__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="Do_AnModel.FK__OrderDeta__IDPro__2E1BDC42" ManuallyRouted="false" />
+      <Diagram DiagramId="e2f6722760a74984be3ea3f9af61b5a2" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.category" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.customer" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.order" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.orderdetail" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.product" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.productCate" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.service" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_product_category" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_productCate_category" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_customer_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_order_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_service_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_orderdetail_order" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_orderdetail_product" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

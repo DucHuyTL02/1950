@@ -12,11 +12,11 @@ namespace Web_bán_hàng__đồ_án_.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class serviec
+    public partial class productCate
     {
-        public int id_service { get; set; }
-        public string name_service { get; set; }
-        public Nullable<double> price { get; set; }
-        public string function { get; set; }
+        public int id_product { get; set; }
+        public int id_cate { get; set; }
+    
+        public virtual category category { get; set; }
     }
 }

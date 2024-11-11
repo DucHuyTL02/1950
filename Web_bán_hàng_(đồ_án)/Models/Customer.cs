@@ -12,22 +12,25 @@ namespace Web_bán_hàng__đồ_án_.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public customer()
         {
-            this.Order = new HashSet<Order>();
+            this.orders = new HashSet<order>();
+            this.services = new HashSet<service>();
         }
     
-        public int IDCus { get; set; }
-        public string NameCus { get; set; }
-        public string PhoneCus { get; set; }
-        public string EmailCus { get; set; }
-        public string Username { get; set; }
+        public int Idcus { get; set; }
+        public string namecus { get; set; }
+        public int phonecus { get; set; }
+        public string emailcus { get; set; }
+        public string username { get; set; }
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<order> orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<service> services { get; set; }
     }
 }

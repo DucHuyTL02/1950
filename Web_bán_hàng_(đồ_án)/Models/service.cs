@@ -12,17 +12,14 @@ namespace Web_bán_hàng__đồ_án_.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class orderdetail
+    public partial class service
     {
-        public int id_detail { get; set; }
-        public int idproduct { get; set; }
-        public int idorder { get; set; }
-        public int quantity { get; set; }
+        public int id_service { get; set; }
+        public string name_service { get; set; }
         public double price { get; set; }
-        public double total_price { get; set; }
-        public string bill_code { get; set; }
+        public string description { get; set; }
+        public int idcus { get; set; }
     
-        public virtual order order { get; set; }
-        public virtual product product { get; set; }
+        public virtual customer customer { get; set; }
     }
 }

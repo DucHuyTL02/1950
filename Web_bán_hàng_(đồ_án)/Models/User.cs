@@ -17,14 +17,14 @@ namespace Web_bán_hàng__đồ_án_.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Customer = new HashSet<Customer>();
+            this.customers = new HashSet<customer>();
         }
     
         public string username { get; set; }
         public string password { get; set; }
-        public bool permisson { get; set; }
+        public bool permission { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customer { get; set; }
+        public virtual ICollection<customer> customers { get; set; }
     }
 }

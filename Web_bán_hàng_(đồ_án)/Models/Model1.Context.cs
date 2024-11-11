@@ -13,10 +13,10 @@ namespace Web_bán_hàng__đồ_án_.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Do_AnEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public Do_AnEntities()
-            : base("name=Do_AnEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -25,12 +25,14 @@ namespace Web_bán_hàng__đồ_án_.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Customer> Customer { get; set; }
-        public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<serviec> serviec { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<category> categories { get; set; }
+        public virtual DbSet<customer> customers { get; set; }
+        public virtual DbSet<order> orders { get; set; }
+        public virtual DbSet<orderdetail> orderdetails { get; set; }
+        public virtual DbSet<product> products { get; set; }
+        public virtual DbSet<productCate> productCates { get; set; }
+        public virtual DbSet<service> services { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
